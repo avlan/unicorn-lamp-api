@@ -21,10 +21,20 @@ sudo uvicorn main:app --host=0.0.0.0
 ## As a demon
 
 ```bash
-sudo gunicorn -w 4 -k uvicorn.workers.UvicornH11Worker main:app --daemon
+sudo gunicorn -b 0.0.0.0:8000 -w 3 -k uvicorn.workers.UvicornH11Worker main:app --daemon
+```
+
+## With systemd
+
+Move content of `unicorn-lamp-api.service` file to `/etc/systemd/system/unicorn-lamp-api.service`
+
+```bash
+sudo systemctl start unicorn-lamp-api
+sudo systemctl enable unicorn-lamp-api
 ```
 
 TODO: Try/catch importing unicornhat
 TODO: Add authentication
 TODO: Add capacity to change colors
 TODO: Add capacity to change brightness
+TODO: Research about supervisord

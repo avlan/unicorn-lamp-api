@@ -1,0 +1,12 @@
+[Unit]
+Description=Gunicorn instance to serve unicorn-lamp-api
+After=network.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/home/pi/unicorn-lamp-api
+ExecStart=/usr/local/bin/gunicorn -b 0.0.0.0:8000 -w 3 -k uvicorn.workers.UvicornH11Worker main:app -m 007
+
+[Install]
+WantedBy=multi-user.target
