@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Response, status
-import unicornhat as unicorn
-unicorn.brightness(1)
+from lamps.lamp import Lamp
 
 app = FastAPI()
+lamp = Lamp()
 
 
 @app.get("/")
@@ -13,11 +13,11 @@ def read_root():
 @app.get("/switch", status_code=200)
 def turn_switch(v: str, response: Response):
     if v == "on":
-        unicorn.set_all(255, 255, 255)
-        unicorn.show()
+        lamp.set_all(255, 255, 255)
+        lamp.show()
     elif v == "off":
-        unicorn.clear()
-        unicorn.show()
+        lamp.clear()
+        lamp.show()
     else:
         response.status_code = status.HTTP_404_NOT_FOUND
         v = "unknown"
