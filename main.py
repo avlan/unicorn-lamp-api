@@ -46,6 +46,14 @@ def change_color(r: str, g:str, b:str, response: Response):
 
     return {"status": "on"}
 
+@app.get("/change-brightness", status_code=200)
+def change_brightness(b:str, response: Response):
+    brightness = float(b)
+    lamp.brightness(brightness)
+    lamp.show()
+
+    return {"status": "on"}
+
 # @app.get("/toggle", status_code=200)
 # def toggle(response: Response):
 #     status = None

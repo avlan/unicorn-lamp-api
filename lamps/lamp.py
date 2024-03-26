@@ -50,3 +50,10 @@ class Lamp:
         docstring
         """
         unicorn.off()
+
+    @staticmethod
+    def brightness(b):
+        """
+        docstring
+        """
+        unicorn.brightness(b)

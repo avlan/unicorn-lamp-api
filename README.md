@@ -4,27 +4,27 @@
 
 Just an API for turning a unicorn hat on and off. Default color is white and default brightness is 1
 
-# Installing dependencies
+## Installing dependencies
 
 ```bash
 sudo pip3 install -r requirements.txt
 ```
 
-# Running
+## Running
 
-## Locally
+### Locally
 
 ```bash
-sudo uvicorn main:app --host=0.0.0.0
+sudo venv/bin/uvicorn main:app --host=0.0.0.0
 ```
 
-## As a demon
+### As a demon
 
 ```bash
 sudo gunicorn -b 0.0.0.0:8000 -w 3 -k uvicorn.workers.UvicornH11Worker main:app --daemon
 ```
 
-## With systemd
+### With systemd
 
 Move content of `unicorn-lamp-api.service` file to `/etc/systemd/system/unicorn-lamp-api.service`
 
@@ -33,8 +33,5 @@ sudo systemctl start unicorn-lamp-api
 sudo systemctl enable unicorn-lamp-api
 ```
 
-TODO: Try/catch importing unicornhat
 TODO: Add authentication
-TODO: Add capacity to change colors
-TODO: Add capacity to change brightness
 TODO: Research about supervisord
