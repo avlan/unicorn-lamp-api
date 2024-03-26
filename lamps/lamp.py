@@ -43,3 +43,10 @@ class Lamp:
         docstring
         """
         unicorn.get_pixel(x, y)
+
+    @staticmethod
+    def off():
+        """
+        docstring
+        """
+        unicorn.off()

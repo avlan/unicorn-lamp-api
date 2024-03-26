@@ -33,3 +33,9 @@ class unicornhat:
         """
         get pixel value x, y of the fakelamp
         """
+
+    @staticmethod
+    def off():
+        """
+        turn off the fakelamp
+        """
