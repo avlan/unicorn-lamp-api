@@ -23,3 +23,28 @@ def turn_switch(v: str, response: Response):
         v = "unknown"
 
     return {"status": v}
+
+@app.get("/on", status_code=200)
+def turn_on(response: Response):
+    lamp.set_all(255, 255, 255)
+    lamp.show()
+
+    return {"status": "on"}
+
+@app.get("/off", status_code=200)
+def turn_off(response: Response):
+    lamp.off()
+
+    return {"status": "off"}
+
+@app.get("/toggle", status_code=200)
+def toggle(response: Response):
+    if lamp.get_pixel(0,0) == 0:
+        lamp.set_all(255, 255, 255)
+        lamp.show()
+        status = "on"
+    else:
+        lamp.off()
+        status: "off"
+
+    return {"status": status}
