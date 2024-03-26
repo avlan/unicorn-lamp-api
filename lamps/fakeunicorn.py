@@ -27,3 +27,9 @@ class unicornhat:
         """
         clear the current colors of the fakelamp
         """
+
+    @staticmethod
+    def get_pixel(x, y):
+        """
+        get pixel value x, y of the fakelamp
+        """
