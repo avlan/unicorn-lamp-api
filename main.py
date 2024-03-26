@@ -40,7 +40,8 @@ def turn_off(response: Response):
 @app.get("/toggle", status_code=200)
 def toggle(response: Response):
     status = None
-    if lamp.get_pixel(0,0) == 0:
+    print(lamp.get_pixel(0,0))
+    if lamp.get_pixel(0,0) == 0 or lamp.get_pixel(0,0) == None:
         lamp.set_all(255, 255, 255)
         lamp.show()
         status = "on"
